@@ -13,20 +13,18 @@ export default function Home() {
 
   return (
     <main className=''>
-      {!isSignedIn ? <SignInButton /> : <SignOutButton />}
-
       {isSignedIn && (
         <form
           onSubmit={(e) => {
             e.preventDefault();
             const formData = new FormData(e.currentTarget);
             const title = formData.get('title') as string;
-            createThumbnail({ title });
+            // createThumbnail({ title });
             e.currentTarget.reset();
           }}
         >
           <label>Title</label>
-          <input name='title' className='text-black' />
+          <input name='title' />
           <button type='submit'>create</button>
         </form>
       )}
